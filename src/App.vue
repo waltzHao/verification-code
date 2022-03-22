@@ -1,15 +1,5 @@
 
 <script setup lang="ts">
-import { onMounted, ref, Ref } from "vue";
-// Todo:
-// 1. verify integer only [done]
-//2. copy paste function [done]
-//3. click on any box to change the value
-//4. apply css
-//5. input cover (spacing, take number only)
-//6. hide text-cursor [done]
-//7. delete big bug [done]
-//8. cannot change the value [done]
 
 let code: string[] = Array(6);
 let dataFromPaste: string[] | undefined;
