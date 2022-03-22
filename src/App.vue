@@ -1,6 +1,5 @@
 
 <script setup lang="ts">
-
 let code: string[] = Array(6);
 let dataFromPaste: string[] | undefined;
 const keysAllowed: string[] = [
@@ -25,7 +24,7 @@ function isNumber(event: Event) {
 }
 function handleInput(event: Event) {
   console.log("trigger onInput Event");
- 
+
   const inputType = (event as InputEvent).inputType;
   let currentActiveElement = event.target as HTMLInputElement;
   if (inputType === "insertText")
@@ -57,7 +56,7 @@ function onPaste(event: Event) {
     ?.getData("text")
     .trim()
     .split("");
-  
+
   if (dataFromPaste) {
     for (const num of dataFromPaste) {
       if (!keysAllowed.includes(num)) {
@@ -69,34 +68,59 @@ function onPaste(event: Event) {
 </script>
 
 <template>
-  <form>
-    <input
-      v-for="(n, index) in code"
-      :key="index"
-      type="text"
-      :id="'input_' + index"
-      maxlength="1"
-      v-model="code[index]"
-      @input="handleInput"
-      @keypress="isNumber"
-      @keydown.delete="handleDelete"
-      @paste="onPaste"
-    />
-  </form>
+  <div>
+    <form>
+      <input
+        v-for="(n, index) in code"
+        :key="index"
+        type="text"
+        :id="'input_' + index"
+        maxlength="1"
+        v-model="code[index]"
+        @input="handleInput"
+        @keypress="isNumber"
+        @keydown.delete="handleDelete"
+        @paste="onPaste"
+      />
+    </form>
+  </div>
 </template>
 
 
 <style>
+div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+form {
+ 
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
 input[type="text"] {
   width: 150px;
   height: 50px;
   font-size: 50px;
   text-align: center;
-  padding: 10px;
-  margin: 10px;
   caret-color: transparent !important;
 }
-
+@media only screen and (max-width: 600px) {
+  /* For tablets: */  
+  input[type="text"] {
+    width: 38px;
+    font-size: 28px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  input[type="text"] {
+    width: 70px;
+    font-size: 30px;
+  }
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
