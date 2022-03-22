@@ -12,6 +12,6 @@ git add -A
 git commit -m 'deploy'
 
 
-git push -f git@github.com:waltzHao/verification-code.git main:gh-pages
+git push -f https://github.com/waltzHao/verification-code.git main:gh-pages
 
 cd -
