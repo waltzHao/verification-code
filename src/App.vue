@@ -128,8 +128,8 @@ input[type="text"] {
 @media only screen and (max-width: 390px), only screen and (max-device-width: 390px) {
    /* CSS overrides for mobile here */
    input[type="text"] {
-    color: red;
-     width: 30px;
+    color: orange;
+     width: 25px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -138,7 +138,7 @@ input[type="text"] {
   }
   /* For tablets: */
   input[type="text"] {
-    width: 35px;
+    width: 40px;
     font-size: 20px;
   }
 }
