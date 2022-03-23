@@ -70,7 +70,9 @@ function onPaste(event: Event) {
 <template>
   <div>
     <h2 class="title">Verification Code</h2>
-    <span>Please enter the code that we sent to your mobile number ***-*****.</span>
+    <span
+      >Please enter the code that we sent to your mobile number ***-*****.</span
+    >
     <form>
       <input
         v-for="(n, index) in code"
@@ -114,7 +116,15 @@ input[type="text"] {
   text-align: center;
   caret-color: transparent !important;
 }
-
+@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+   form {
+    gap: 12px;
+  }
+  input[type="text"] {
+    width: 30px;
+    font-size: 20px;
+  }
+}
 @media only screen and (max-width: 600px) {
   form {
     gap: 12px;
@@ -131,7 +141,6 @@ input[type="text"] {
     font-size: 30px;
   }
 }
-
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
