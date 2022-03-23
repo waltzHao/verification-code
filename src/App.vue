@@ -14,7 +14,7 @@ const keysAllowed: string[] = [
   "8",
   "9",
 ];
-var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
 function isNumber(event: Event) {
   (event.target as HTMLInputElement).value = "";
   const keyPressed: string = (event as KeyboardEvent).key;
@@ -69,12 +69,31 @@ function onPaste(event: Event) {
 </script>
 
 <template>
-  <div>
-    <h2 class="title">Verification Code</h2>
-    <span
-      >Please enter the code that we sent to your mobile number ***-*****.</span
-    >
-    {{ width }}
+  <h2>Verification Code</h2>
+  <p>Please enter the code that we sent to your mobile number ***-*****.</p>
+  <div id="parent">
+    
+
+    <div id="child">
+      <form>
+        <input
+          v-for="(n, index) in code"
+          :key="index"
+          type="text"
+          pattern="\d*"
+          :id="'input_' + index"
+          maxlength="1"
+          v-model="code[index]"
+          @input="handleInput"
+          @keypress="isNumber"
+          @keydown.delete="handleDelete"
+          @paste="onPaste"
+        />
+      </form>
+    </div>
+  </div>
+
+  <div class="verification-input">
     <form>
       <input
         v-for="(n, index) in code"
@@ -95,18 +114,31 @@ function onPaste(event: Event) {
 
 
 <style>
-.title {
-  font-weight: bold;
-  font-size: 20px;
+#parent {
+  text-align: center;
+  position: relative;
+  border: 1px solid blue;
+  margin: auto;
+  width: 500px;
+  height: 100px;
 }
-div {
+
+#child {
+  /* position: absolute; */
+  border: 1px solid red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.verification-input {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 form {
-
   display: flex;
   flex-direction: row;
   gap: 18px;
@@ -127,15 +159,16 @@ input[type="text"] {
     font-size: 20px;
   }
 } */
-@media only screen and (max-width: 390px), only screen and (max-device-width: 390px) {
-   /* CSS overrides for mobile here */
-    form {
+@media only screen and (max-width: 390px),
+  only screen and (max-device-width: 390px) {
+  /* CSS overrides for mobile here */
+  form {
     gap: 8px;
   }
-   input[type="text"] {
+  input[type="text"] {
     color: blue;
-     /* width: 18px; */
-       font-size: 25px;
+    /* width: 18px; */
+    font-size: 25px;
   }
 }
 @media only screen and (max-width: 600px) {
