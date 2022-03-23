@@ -69,11 +69,14 @@ function onPaste(event: Event) {
 
 <template>
   <div>
+    <h2 class="title">Verification Code</h2>
+    <span>Please enter the code that we sent to your mobile number ***-*****.</span>
     <form>
       <input
         v-for="(n, index) in code"
         :key="index"
         type="text"
+        pattern="\d*"
         :id="'input_' + index"
         maxlength="1"
         v-model="code[index]"
@@ -88,6 +91,10 @@ function onPaste(event: Event) {
 
 
 <style>
+.title {
+  font-weight: bold;
+  font-size: 20px;
+}
 div {
   position: absolute;
   top: 50%;
@@ -95,8 +102,7 @@ div {
   transform: translate(-50%, -50%);
 }
 form {
- 
-  margin: 0;
+  margin: 10px;
   display: flex;
   flex-direction: row;
   gap: 18px;
@@ -108,8 +114,12 @@ input[type="text"] {
   text-align: center;
   caret-color: transparent !important;
 }
+
 @media only screen and (max-width: 600px) {
-  /* For tablets: */  
+  form {
+    gap: 12px;
+  }
+  /* For tablets: */
   input[type="text"] {
     width: 38px;
     font-size: 28px;
@@ -121,6 +131,8 @@ input[type="text"] {
     font-size: 30px;
   }
 }
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
