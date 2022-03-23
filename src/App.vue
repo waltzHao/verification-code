@@ -131,8 +131,9 @@ input[type="text"] {
     gap: 8px;
   }
    input[type="text"] {
-    color: yellow;
+    color: blue;
      width: 18px;
+       font-size: 25px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -141,7 +142,7 @@ input[type="text"] {
   }
   /* For tablets: */
   input[type="text"] {
-    width: 40px;
+    width: 30px;
     font-size: 20px;
   }
 }
