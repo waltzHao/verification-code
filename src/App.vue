@@ -14,6 +14,7 @@ const keysAllowed: string[] = [
   "8",
   "9",
 ];
+var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 function isNumber(event: Event) {
   (event.target as HTMLInputElement).value = "";
   const keyPressed: string = (event as KeyboardEvent).key;
@@ -73,6 +74,7 @@ function onPaste(event: Event) {
     <span
       >Please enter the code that we sent to your mobile number ***-*****.</span
     >
+    {{ width }}
     <form>
       <input
         v-for="(n, index) in code"
