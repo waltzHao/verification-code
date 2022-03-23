@@ -116,13 +116,20 @@ input[type="text"] {
   text-align: center;
   caret-color: transparent !important;
 }
-@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+/* @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
    form {
     gap: 10px;
   }
   input[type="text"] {
     width: 30px;
     font-size: 20px;
+  }
+} */
+@media only screen and (max-width: 390px), only screen and (max-device-width: 390px) {
+   /* CSS overrides for mobile here */
+   input[type="text"] {
+    color: red;
+     width: 30px;
   }
 }
 @media only screen and (max-width: 600px) {
