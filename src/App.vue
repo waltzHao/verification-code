@@ -104,7 +104,7 @@ div {
   transform: translate(-50%, -50%);
 }
 form {
-  margin: 10px;
+
   display: flex;
   flex-direction: row;
   gap: 18px;
@@ -118,7 +118,7 @@ input[type="text"] {
 }
 @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
    form {
-    gap: 12px;
+    gap: 10px;
   }
   input[type="text"] {
     width: 30px;
@@ -131,8 +131,8 @@ input[type="text"] {
   }
   /* For tablets: */
   input[type="text"] {
-    width: 38px;
-    font-size: 28px;
+    width: 35px;
+    font-size: 20px;
   }
 }
 @media only screen and (min-width: 600px) {
