@@ -132,7 +132,7 @@ input[type="text"] {
   }
    input[type="text"] {
     color: blue;
-     width: 18px;
+     /* width: 18px; */
        font-size: 25px;
   }
 }
