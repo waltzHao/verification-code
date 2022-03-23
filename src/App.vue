@@ -150,16 +150,14 @@ input[type="text"] {
   text-align: center;
   caret-color: transparent !important;
 }
-@media only screen and (max-width: 360px),
-  only screen and (max-device-width: 360px) {
+@media (max-width: 360px) {
  input[type="text"] {
     color: orange;
     width: 30px;
     font-size: 25px;
   }
 }
-@media only screen and (max-width: 390px),
-  only screen and (max-device-width: 390px) {
+@media only screen and (max-width: 390px) {
   /* CSS overrides for mobile here */
   form {
     gap: 8px;
