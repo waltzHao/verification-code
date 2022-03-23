@@ -119,7 +119,7 @@ function onPaste(event: Event) {
   position: relative;
   border: 1px solid blue;
   margin: auto;
-  width: 500px;
+  /* width: 500px; */
   height: 100px;
 }
 
@@ -150,15 +150,13 @@ input[type="text"] {
   text-align: center;
   caret-color: transparent !important;
 }
-/* @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
-   form {
-    gap: 10px;
-  }
-  input[type="text"] {
+@media only screen and (max-width: 360px) {
+ input[type="text"] {
+    color: orange;
     width: 30px;
-    font-size: 20px;
+    font-size: 25px;
   }
-} */
+}
 @media only screen and (max-width: 390px),
   only screen and (max-device-width: 390px) {
   /* CSS overrides for mobile here */
@@ -167,7 +165,7 @@ input[type="text"] {
   }
   input[type="text"] {
     color: blue;
-    /* width: 18px; */
+    width: 30px;
     font-size: 25px;
   }
 }
@@ -177,7 +175,7 @@ input[type="text"] {
   }
   /* For tablets: */
   input[type="text"] {
-    width: 30px;
+    width: 35px;
     font-size: 20px;
   }
 }
