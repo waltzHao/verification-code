@@ -71,10 +71,8 @@ function onPaste(event: Event) {
 <template>
   <h2>Verification Code</h2>
   <p>Please enter the code that we sent to your mobile number ***-*****.</p>
-  <div id="parent">
-    
-
-    <div id="child">
+  <div class="parent">
+    <div class="child">
       <form>
         <input
           v-for="(n, index) in code"
@@ -92,40 +90,28 @@ function onPaste(event: Event) {
       </form>
     </div>
   </div>
-
-  <div class="verification-input">
-    <form>
-      <input
-        v-for="(n, index) in code"
-        :key="index"
-        type="text"
-        pattern="\d*"
-        :id="'input_' + index"
-        maxlength="1"
-        v-model="code[index]"
-        @input="handleInput"
-        @keypress="isNumber"
-        @keydown.delete="handleDelete"
-        @paste="onPaste"
-      />
-    </form>
-  </div>
 </template>
 
 
 <style>
-#parent {
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin: auto;
+}
+.parent {
   text-align: center;
   position: relative;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   margin: auto;
-  /* width: 500px; */
   height: 100px;
 }
 
-#child {
-  /* position: absolute; */
-  border: 1px solid red;
+.child {
+  /* border: 1px solid red; */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -150,47 +136,25 @@ input[type="text"] {
   text-align: center;
   caret-color: transparent !important;
 }
-@media (max-width: 360px) {
- input[type="text"] {
-    color: orange;
-    width: 30px;
-    font-size: 25px;
+
+@media only screen and (max-width: 1080px) {
+  input[type="text"] {
+    width: 80px;
   }
 }
-@media only screen and (max-width: 390px) {
-  /* CSS overrides for mobile here */
+@media only screen and (max-width: 600px) {
+  input[type="text"] {
+    width: 40px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
   form {
     gap: 8px;
   }
   input[type="text"] {
-    color: blue;
-    width: 30px;
-    font-size: 20px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  form {
-    gap: 12px;
-  }
-  /* For tablets: */
-  input[type="text"] {
     width: 35px;
-    font-size: 20px;
+    font-size: 40px;
   }
-}
-@media only screen and (min-width: 600px) {
-  input[type="text"] {
-    width: 70px;
-    font-size: 30px;
-  }
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin: auto;
 }
 </style>
