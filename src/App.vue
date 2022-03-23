@@ -127,9 +127,12 @@ input[type="text"] {
 } */
 @media only screen and (max-width: 390px), only screen and (max-device-width: 390px) {
    /* CSS overrides for mobile here */
+    form {
+    gap: 8px;
+  }
    input[type="text"] {
-    color: orange;
-     width: 25px;
+    color: yellow;
+     width: 18px;
   }
 }
 @media only screen and (max-width: 600px) {
