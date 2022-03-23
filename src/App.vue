@@ -150,7 +150,8 @@ input[type="text"] {
   text-align: center;
   caret-color: transparent !important;
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 360px),
+  only screen and (max-device-width: 360px) {
  input[type="text"] {
     color: orange;
     width: 30px;
@@ -166,7 +167,7 @@ input[type="text"] {
   input[type="text"] {
     color: blue;
     width: 30px;
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 @media only screen and (max-width: 600px) {
