@@ -16,9 +16,11 @@ const keysAllowed: string[] = [
 ];
 
 function isNumber(event: Event) {
-  (event.target as HTMLInputElement).value = "";
+  console.log(event);
+  // (event.target as HTMLInputElement).value = "";
+  (event.currentTarget as HTMLInputElement).value = "";
   const keyPressed: string = (event as KeyboardEvent).key;
-
+  console.log(keyPressed);
   if (!keysAllowed.includes(keyPressed)) {
     event.preventDefault();
   }
@@ -88,6 +90,7 @@ function onPaste(event: Event) {
           @paste="onPaste"
         />
       </form>
+  
     </div>
   </div>
 </template>
@@ -148,12 +151,12 @@ input[type="text"] {
   }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 500px) {
   form {
     gap: 8px;
   }
   input[type="text"] {
-    width: 35px;
+    width: 12vw;
     font-size: 40px;
   }
 }
