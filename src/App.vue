@@ -16,17 +16,14 @@ const keysAllowed: string[] = [
 ];
 
 function isNumber(event: Event) {
-  console.log(event);
-  // (event.target as HTMLInputElement).value = "";
+ 
   (event.currentTarget as HTMLInputElement).value = "";
   const keyPressed: string = (event as KeyboardEvent).key;
-  console.log(keyPressed);
   if (!keysAllowed.includes(keyPressed)) {
     event.preventDefault();
   }
 }
 function handleInput(event: Event) {
-  console.log("trigger onInput Event");
 
   const inputType = (event as InputEvent).inputType;
   let currentActiveElement = event.target as HTMLInputElement;
@@ -67,7 +64,6 @@ function onPaste(event: Event) {
     for (const num of dataFromPaste) {
       if (!keysAllowed.includes(num)) event.preventDefault();
     }
-    console.log(event);
   }
 }
 </script>
@@ -109,25 +105,17 @@ function onPaste(event: Event) {
 .parent {
   text-align: center;
   position: relative;
-  /* border: 1px solid blue; */
   margin: auto;
   height: 100px;
 }
 
 .child {
-  /* border: 1px solid red; */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.verification-input {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 form {
   display: flex;
   flex-direction: row;
@@ -151,6 +139,7 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
 @media only screen and (max-width: 1080px) {
   input[type="number"] {
     width: 80px;
@@ -161,14 +150,15 @@ input[type="number"] {
     width: 40px;
   }
 }
-
 @media only screen and (max-width: 500px) {
   form {
     gap: 8px;
   }
-  input[type="text"] {
+  input[type="number"] {
     width: 12vw;
     font-size: 40px;
   }
 }
+
+
 </style>
