@@ -30,12 +30,15 @@ function handleInput(event: Event) {
 
   const inputType = (event as InputEvent).inputType;
   let currentActiveElement = event.target as HTMLInputElement;
+
   if (inputType === "insertText")
     (currentActiveElement.nextElementSibling as HTMLElement)?.focus();
 
   if (inputType === "insertFromPaste" && dataFromPaste) {
     for (const num of dataFromPaste) {
+      let id: number = parseInt(currentActiveElement.id.split("_")[1]);
       currentActiveElement.value = num;
+      code[id] = num;
       if (currentActiveElement.nextElementSibling) {
         currentActiveElement =
           currentActiveElement.nextElementSibling as HTMLInputElement;
@@ -62,10 +65,9 @@ function onPaste(event: Event) {
 
   if (dataFromPaste) {
     for (const num of dataFromPaste) {
-      if (!keysAllowed.includes(num)) {
-        event.preventDefault();
-      }
+      if (!keysAllowed.includes(num)) event.preventDefault();
     }
+    console.log(event);
   }
 }
 </script>
@@ -90,7 +92,6 @@ function onPaste(event: Event) {
           @paste="onPaste"
         />
       </form>
-  
     </div>
   </div>
 </template>
@@ -132,21 +133,31 @@ form {
   flex-direction: row;
   gap: 18px;
 }
-input[type="text"] {
+input[type="number"] {
   width: 150px;
   height: 50px;
   font-size: 50px;
   text-align: center;
   caret-color: transparent !important;
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 @media only screen and (max-width: 1080px) {
-  input[type="text"] {
+  input[type="number"] {
     width: 80px;
   }
 }
 @media only screen and (max-width: 600px) {
-  input[type="text"] {
+  input[type="number"] {
     width: 40px;
   }
 }
