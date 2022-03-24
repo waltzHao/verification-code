@@ -79,7 +79,7 @@ function onPaste(event: Event) {
         <input
           v-for="(n, index) in code"
           :key="index"
-          type="text"
+          type="number"
           pattern="\d*"
           :id="'input_' + index"
           maxlength="1"
